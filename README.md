@@ -17,6 +17,7 @@ https://arxiv.org/pdf/1411.1784.pdf
 2. Put the zip into the data directory and unzip it.
 
 ```shell
+% cd data
 % unzip data/img_align_celeba.zip
 ```
 
