@@ -10,7 +10,7 @@ https://arxiv.org/abs/1511.06434
 Mehdi Mirza and Simon Osindero: Conditional Generative Adversarial Nets. 
 https://arxiv.org/pdf/1411.1784.pdf
 
-## Training cDCGAN
+## Training
 
 ```shell
 % docker build -t cdcgan .
