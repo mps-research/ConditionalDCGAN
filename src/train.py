@@ -17,10 +17,6 @@ class Trainable(tune.Trainable):
     def setup(self, config):
         self.device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
-        self.n_conditions = len(datasets[config['dataset']]['label_conds'])
-
-        create_dataset(**datasets[config['dataset']])
-
         transform = transforms.Compose([
             transforms.Resize(64),
             transforms.CenterCrop(64),
@@ -28,10 +24,13 @@ class Trainable(tune.Trainable):
             transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
         ])
 
+        create_dataset(**datasets[config['dataset']])
         dataset = ImageFolder(root=datasets[config['dataset']]['out_dir'], transform=transform)
 
         self.dataloader = DataLoader(
             dataset=dataset, batch_size=self.config['batch_size'], shuffle=True)
+
+        self.n_conditions = len(datasets[config['dataset']]['label_conds'])
 
         self.fixed_noises = torch.randn((self.n_conditions * 10, 100, 1, 1), device=self.device)
         self.fixed_conditions = one_hot(
