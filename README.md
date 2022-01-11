@@ -18,7 +18,7 @@ https://arxiv.org/pdf/1411.1784.pdf
 
 ```shell
 % cd data
-% unzip data/img_align_celeba.zip
+% unzip img_align_celeba.zip
 ```
 
 3. Build "cdcgan" docker image and run the image inside of a container.
