@@ -12,6 +12,16 @@ https://arxiv.org/pdf/1411.1784.pdf
 
 ## Training
 
+1. Download "img_align_celeba.zip" from [CelebA Dataset web page](https://mmlab.ie.cuhk.edu.hk/projects/CelebA.html).
+
+2. Put the zip into the data directory and unzip it.
+
+```shell
+% unzip data/img_align_celeba.zip
+```
+
+3. Build "cdcgan" docker image and run the image inside of a container.
+
 ```shell
 % docker build -t cdcgan .
 % ./train.sh
